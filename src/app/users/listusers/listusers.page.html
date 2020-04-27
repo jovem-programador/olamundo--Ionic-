@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+
+        <!-- botão do Menu da tela -->
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        
+    <ion-title>lista de usuários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Se existe dados para mostra -->
+  <div *ngIf="data">
+    <div *ngFor="let user of data">
+      <img src="{{user.avatar}}" alt="{{user.name}}">
+      <h4>{{user.id}} - {{user.name}}</h4>
+      <p>E-mail: {{user.email}}</p>
+      <p>Status: {{user.status}}</p>
+      <p>Data: {{user.date}}</p>
+      <p>~~~~~~~~~~~~~</p>
+    </div>
+  </div>
+</ion-content>
