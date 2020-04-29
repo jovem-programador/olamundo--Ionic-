@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       icon: 'information-circle'
     },
     {
-      title: 'Contato',
+      title: 'contatos',
       url: '/contacts',
       icon: 'mail'
     }
