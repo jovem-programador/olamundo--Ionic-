@@ -24,4 +24,12 @@ private apiUrl = 'http://localhost:8888/api';
 
     return this.http.get<ResponseUsers>(this.apiUrl);
   }
+
+    // Metodo para obter usuarios único
+    getUser(id: string): Observable<ResponseUsers> {
+
+      const url = `${this.apiUrl}?id=${id}`;
+
+      return this.http.get<ResponseUsers>(url);
+    }
 }

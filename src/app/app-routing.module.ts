@@ -35,6 +35,12 @@ const routes: Routes = [
     path: 'lista',
     loadChildren: () => import('./users/listusers/listusers.module').then( m => m.ListusersPageModule)
   },
+
+  {
+    path: 'usuarios/usuarios/:id',
+    loadChildren: () => import('./users/user/user.module').then( m => m.UserPageModule)
+  },
+
   // Carrega a página e404 caso a rota não existe
   {
     path: '**',
