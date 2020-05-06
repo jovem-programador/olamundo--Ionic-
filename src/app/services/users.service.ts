@@ -6,18 +6,23 @@ import { Observable } from 'rxjs';
 // Cliente HTTP do Angular
 import { HttpClient } from '@angular/common/http';
 
-import { ResponseUsers } from '../models/users.model';
+import { ResponseUsers, ResponseDelUser } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UsersService {
+
 
   // Url da api
 private apiUrl = 'http://localhost:8888/api';
 
+
 // Inicializa o cliente HTTP
   constructor(private http: HttpClient) { }
+
 
   // Metodo para obter todos os usuarios
   getUsers(): Observable<ResponseUsers> {
@@ -25,11 +30,21 @@ private apiUrl = 'http://localhost:8888/api';
     return this.http.get<ResponseUsers>(this.apiUrl);
   }
 
+
     // Metodo para obter usuarios único
     getUser(id: string): Observable<ResponseUsers> {
 
       const url = `${this.apiUrl}?id=${id}`;
 
       return this.http.get<ResponseUsers>(url);
+    }
+
+
+     // Metodo para apagar usuarios único
+     deleteUser(id: string): Observable<ResponseDelUser> {
+
+      const url = `${this.apiUrl}?id=${id}`;
+
+      return this.http.delete<ResponseDelUser>(url);
     }
 }
