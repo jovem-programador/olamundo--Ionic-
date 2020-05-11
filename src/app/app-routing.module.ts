@@ -6,7 +6,7 @@ const routes: Routes = [
   // Página inicial
   {
     path: '',
-    redirectTo: 'inicial',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -45,12 +45,6 @@ const routes: Routes = [
   {
     path: 'usuarios/criar',
     loadChildren: () => import('./users/create/create.module').then( m => m.CreatePageModule)
-  },
-
-  // Teste de slide
-  {
-    path: 'inicial',
-    loadChildren: () => import('./pages/teste-slide/teste-slide.module').then( m => m.TesteSlidePageModule)
   },
 
   // Carrega a página e404 caso a rota não existe
