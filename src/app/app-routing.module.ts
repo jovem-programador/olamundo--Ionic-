@@ -6,7 +6,7 @@ const routes: Routes = [
   // Página inicial
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'inicial',
     pathMatch: 'full'
   },
   {
@@ -41,11 +41,25 @@ const routes: Routes = [
     loadChildren: () => import('./users/user/user.module').then( m => m.UserPageModule)
   },
 
+  // Rota para cadastrar usuário
+  {
+    path: 'usuarios/criar',
+    loadChildren: () => import('./users/create/create.module').then( m => m.CreatePageModule)
+  },
+
+  // Teste de slide
+  {
+    path: 'inicial',
+    loadChildren: () => import('./pages/teste-slide/teste-slide.module').then( m => m.TesteSlidePageModule)
+  },
+
   // Carrega a página e404 caso a rota não existe
   {
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
-  }
+  },
+
+
 
 ];
 

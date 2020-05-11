@@ -22,6 +22,11 @@
     <ion-spinner name="lines"></ion-spinner>
   </div>
 
+  <script type="module">
+    import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
+    window.alertController = alertController;
+  </script>
+  
   <!--Usuário encontrados-->
   <div *ngIf="data">
     <ion-card class="ion-margin">
@@ -45,6 +50,7 @@
               </ion-button>
             </ion-col>
             <ion-col class="ion-text-right">
+              <ion-button color="warning" (click)="alertDelete()">Teste</ion-button>
               <ion-button color="warning" (click)="delUser(data.id, data.name)">
                 <ion-icon name="trash" slot="start"></ion-icon> Apagar
               </ion-button>

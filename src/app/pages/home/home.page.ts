@@ -18,4 +18,9 @@ export class HomePage implements OnInit {
   listUsers() {
     this.navCtrl.navigateForward('lista');
   }
+
+  // Ação do botão criar usuário
+  createUsers() {
+    this.navCtrl.navigateForward('usuarios/criar');
+  }
 }

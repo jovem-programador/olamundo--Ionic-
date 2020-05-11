@@ -20,14 +20,19 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
+      title: 'Lista',
+      url: '/lista',
+      icon: 'list-outland'
+    },
+    {
       title: 'Sobre',
       url: '/about',
-      icon: 'information-circle'
+      icon: 'information-outline'
     },
     {
       title: 'contatos',
       url: '/contacts',
-      icon: 'mail'
+      icon: 'call-outline'
     }
   ];
 
