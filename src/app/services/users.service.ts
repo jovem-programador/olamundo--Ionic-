@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 // Cliente HTTP do Angular
 import { HttpClient } from '@angular/common/http';
 
-import { ResponseUsers, ResponseDelUser, ResponsePostUser } from '../models/users.model';
+import { ResponseUsers, ResponseDelUser, ResponsePostUser, ResponsePutUser, ResponseUser } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ private apiUrl = 'http://localhost:8888/api';
 
 
     // Metodo para obter usuarios único
-    getUser(id: string): Observable<ResponseUsers> {
+    getUser(id: string): Observable<ResponseUser> {
 
       const url = `${this.apiUrl}?id=${id}`;
 
@@ -49,16 +49,14 @@ private apiUrl = 'http://localhost:8888/api';
     }
 
     // Método para salvar novos usuários
-    postUser(data: any) {
-     let url = `${this.apiUrl}?`;
+    postUser(data: any): Observable<ResponsePostUser> {
 
-     // monstando requisição
-     Object.keys(data).forEach((key) => {
-       url += `${key}=${data[key]}&`;
-      }
-     );
-     console.log(url);
-     
-     return this.http.post<ResponsePostUser>(url, data);
+     return this.http.post<ResponsePostUser>(this.apiUrl, data);
     }
+    
+    // Método para atualizar usuários
+    updateUser(data: any): Observable<ResponsePutUser> {
+
+      return this.http.put<ResponsePutUser>(this.apiUrl, data);
+     }
 }

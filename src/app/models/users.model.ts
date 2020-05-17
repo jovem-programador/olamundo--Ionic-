@@ -31,3 +31,9 @@ export interface ResponsePostUser {
     status: string;
     result: string;
 }
+
+// O'que esperar do response do put
+export interface ResponsePutUser {
+    status: string;
+    result: string;
+}

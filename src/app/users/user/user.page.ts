@@ -18,7 +18,7 @@ import { NavController } from '@ionic/angular';
 export class UserPage implements OnInit {
 
   // Obtem o id do usuário da url
-  id: string = this.route.snapshot.paramMap.get('id');
+  id = parseInt(this.route.snapshot.paramMap.get('id'),10);
 
     // Variável indentifica setemos usuários
     noUser = false;
@@ -39,7 +39,7 @@ export class UserPage implements OnInit {
     //console.log('ID: ', this.id);
 
     // 2) Consultar a API para id informado
-    this.usersService.getUser(this.id).subscribe(
+    this.usersService.getUser(this.id.toString()).subscribe(
       (res: any) => {
         //console.log(res);
 
@@ -68,7 +68,7 @@ export class UserPage implements OnInit {
   // Ação do botão editar
 
 editUser(id: string) {
-  alert(`Editando ${id}...`);
+  this.navCtrl.navigateForward(`usuarios/editar/${id}`);
 }
 
 delUser(id: string, name: string) {
@@ -83,7 +83,7 @@ delUser(id: string, name: string) {
     }
 
     // Apaga o registro
-    this.usersService.deleteUser(this.id).subscribe((res:any) => {
+    this.usersService.deleteUser(this.id.toString()).subscribe((res:any) => {
       // Se apagou
       if(res.status === 'success' && res.result === 'Record deleted successfully') {
         // Feedback

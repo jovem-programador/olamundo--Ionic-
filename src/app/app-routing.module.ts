@@ -46,6 +46,23 @@ const routes: Routes = [
     path: 'usuarios/criar',
     loadChildren: () => import('./users/create/create.module').then( m => m.CreatePageModule)
   },
+  {
+    path: 'usuarios/editar/:id',
+    loadChildren: () => import('./users/edit/edit.module').then( m => m.EditPageModule)
+  },
+
+  {
+    path: 'dev/status',
+    loadChildren: () => import('./device/status/status.module').then( m => m.StatusPageModule)
+  },
+  {
+    path: 'dev/camera',
+    loadChildren: () => import('./device/camera/camera.module').then( m => m.CameraPageModule)
+  },
+  {
+    path: 'dev/gps',
+    loadChildren: () => import('./device/geo-location/geo-location.module').then( m => m.GeoLocationPageModule)
+  },
 
   // Carrega a página e404 caso a rota não existe
   {
